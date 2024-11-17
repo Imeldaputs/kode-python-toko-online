@@ -1,0 +1,63 @@
+data_product = {
+    1: "Laptop",
+    2: "Mouse",
+    3: "Monitor",
+    4: "Mouse pad",
+    5: "Charger",
+}
+daftar_harga = {
+   1: 5000000,
+   2: 65000,
+   3: 700000,
+   4: 100000,
+   5: 25000,
+}
+
+dict_trx = {}
+daftar_metode_pembayaran = {
+    1:"Transfer Bank",
+    2:"Virtual Account",
+    3:"Cash on delivery",
+    4:"Kartu kredit",
+}
+print("==============List Product============== ")
+for i in data_product:
+    print("Id product : ",i,"\t Nama Product :",
+          data_product[i], "\t \t Harga Product : ",daftar_harga[i] )
+pilih_id = int(input("Pilih Id Product : "))
+if pilih_id in data_product :
+    pilih_beli = input("Ingin Beli ? (Y/N): ")
+if pilih_beli == "y" or pilih_beli=="Y":
+    nama_penerima      = input("Nama Penerima    : ")
+    alamat_penerima    = input("alamat Penerima  : ")
+    telepon            = input("No hp            : ")
+    kurir_pengiriman   = input("kurir pengiriman : ")
+    dict_trx = {
+        "nama penerima":nama_penerima,
+        "alamat penerima":alamat_penerima,
+        "No hp":telepon,
+        "Kurir pengiriman":kurir_pengiriman,
+        "product id":data_product,
+    }  
+else:
+   pass 
+if len(dict_trx) > 0 :
+    print("================Metode Pembayaran================")
+for i in daftar_metode_pembayaran:
+    print("Id : ", i,"\t Metode Pembayaran : ", daftar_metode_pembayaran[i])
+pilih_metode = int(input("Pilih ID Metode pembayaran : "))
+if pilih_metode in daftar_metode_pembayaran :
+    print("nama penerima : ", dict_trx["nama penerima"])
+    print("alamat penerima : ", dict_trx["alamat penerima"])
+    print("No hp : ", dict_trx["No hp"])
+    print("Kurir pengiriman : ", dict_trx["Kurir pengiriman"])
+    print("product : ", data_product[pilih_id])
+    print("harga   : ", daftar_harga[pilih_id])
+    print("Metode Pembayaran : ", daftar_metode_pembayaran[pilih_metode])
+    konfirmasi = input("Apakah Anda Yakin Ingin Melakukan Pembayaran? (Y/N) : ")
+    if konfirmasi == "y" or konfirmasi == "Y":
+        print("Anda Sudah berhasil melakukan pembayaran")
+    else:
+     print("Id metode pembayaran tidak tersedia")
+else:
+    print("Id product tidak tersedia") 
